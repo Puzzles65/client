@@ -9,9 +9,14 @@ import {
 import { useNavigate } from "react-router-dom";
 import { shades } from "../../theme";
 
+import { setIsCartOpen } from "../../state";
+
 const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  // grabbing cart from intialstate and cartSlice (cart.cart)
+  const cart = useSelector((state) => state.cart.cart);
 
   return (
     //outer box styling
@@ -47,20 +52,39 @@ const Navbar = () => {
           columnGap="20px"
           zIndex="2"
         >
-            <IconButton sx={{ color:"black" }}>
-                <SearchOutlined />
+          <IconButton sx={{ color: "black" }}>
+            <SearchOutlined />
+          </IconButton>
+          <IconButton sx={{ color: "black" }}>
+            <PersonOutline />
+          </IconButton>
+          <Badge
+          // Adding an indicator with number of items in the cart
+            badgeContent={cart.length}
+            color="secondary"
+            invisible={cart.length === 0}
+            sx={{
+              "& .MuiBadge-badge": {
+                right: 5,
+                top: 5,
+                padding: "0 4px",
+                height: "14px",
+                minWidth: "13px",
+              },
+            }}
+          >
+            <IconButton
+              // onclick going to run the function setIsCartOpen when we click on it
+              onClick={() => dispatch(setIsCartOpen({}))}
+              sx={{ color: "black" }}
+            >
+              <ShoppingBagOutlined />
             </IconButton>
-            <IconButton sx={{ color:"black" }}>
-                <PersonOutline />
-            </IconButton>
-            <IconButton sx={{ color:"black" }}>
-                <ShoppingBagOutlined />
-            </IconButton>
-            <IconButton sx={{ color:"black" }}>
-                <MenuOutlined />
-            </IconButton>
+          </Badge>
+          <IconButton sx={{ color: "black" }}>
+            <MenuOutlined />
+          </IconButton>
         </Box>
-
       </Box>
     </Box>
   );
