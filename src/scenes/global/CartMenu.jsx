@@ -51,7 +51,7 @@ const CartMenu = () => {
     >
       {/* Modal */}
       <Box
-        postion="fixed"
+        position="fixed"
         right="0"
         bottom="0"
         width="max(400px, 30%)"
