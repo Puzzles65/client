@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Divider,
-  Icon,
   IconButton,
   Typography,
 } from "@mui/material";
@@ -31,7 +30,7 @@ const CartMenu = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
-  const setIsCartOpen = useSelector((state) => state.cart.setIsCartOpen);
+  const isCartOpen = useSelector((state) => state.cart.isCartOpen);
 
   const totalPrice = cart.reduce((total, item) => {
     return total + item.count * item.attributes.price;
@@ -40,7 +39,7 @@ const CartMenu = () => {
   return (
     <Box
       // the shadowed box when opening cart (left side)
-      display={setIsCartOpen ? "block" : "none"}
+      display={isCartOpen ? "block" : "none"}
       backgroundColor="rgba(0, 0, 0, 0.4)"
       position="fixed"
       zIndex={10}
