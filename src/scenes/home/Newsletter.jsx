@@ -2,7 +2,7 @@ import { Box, InputBase, Divider, Typography, IconButton } from "@mui/material";
 import MarkEmailReadOutlinedIcon from "@mui/icons-material/MarkEmailReadOutlined";
 import { useState } from "react";
 
-const Subscribe = () => {
+const Newsletter = () => {
   const [email, setEmail] = useState("");
 
   return (
@@ -37,4 +37,4 @@ const Subscribe = () => {
   );
 };
 
-export default Subscribe;
+export default Newsletter;

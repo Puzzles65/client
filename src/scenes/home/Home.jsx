@@ -1,13 +1,13 @@
 import MainCarousel from "./MainCarousel";
 import ShoppingList from "./ShoppingList";
-import Subscribe from "./Subscribe";
+import Newsletter from "./Newsletter";
 
 const Home = () => {
   return (
     <div className="home">
       <MainCarousel />
       <ShoppingList />
-      <Subscribe />
+      <Newsletter />
     </div>
   );
 };
