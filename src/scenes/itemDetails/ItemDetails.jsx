@@ -25,7 +25,7 @@ const ItemDetails = () => {
 
   async function getItem() {
     const item = await fetch(
-      `http://localhost:1337/api/items/${itemId}?populate=image`,
+      `http://localhost:3000/api/items/${itemId}?populate=image`,
       {
         method: "GET",
       }
